@@ -1,0 +1,99 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1c2333;
+  --muted: #667085;
+  --primary: #f47b20;
+  --primary-dark: #d9650f;
+  --accent: #0a66c2;
+  --border: #e4e7ec;
+  --danger: #d92d20;
+  --success: #12b76a;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+a { color: var(--accent); text-decoration: none; }
+.hidden { display: none !important; }
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  padding: 14px 24px; background: #101828; color: #fff;
+}
+.brand { color: #fff; font-weight: 700; font-size: 18px; }
+.brand span { color: var(--primary); }
+.nav { display: flex; align-items: center; gap: 18px; }
+.nav a { color: #d0d5dd; }
+.nav a:hover { color: #fff; }
+.user { color: #98a2b3; font-size: 14px; }
+.badge { background: var(--primary); color: #fff; border-radius: 10px; padding: 1px 8px; font-size: 12px; margin-left: 4px; }
+
+.container { max-width: 1000px; margin: 32px auto; padding: 0 16px; }
+h1 { margin: 0 0 8px; }
+.subtitle { color: var(--muted); margin: 0 0 24px; }
+
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+.auth { max-width: 400px; margin: 40px auto; }
+
+label { display: block; font-size: 14px; font-weight: 600; margin: 14px 0 6px; }
+input, select {
+  width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 15px;
+}
+input:focus, select:focus { outline: 2px solid var(--primary); border-color: transparent; }
+
+button, .btn {
+  display: inline-block; border: 0; border-radius: 8px; padding: 10px 18px; font-size: 15px; font-weight: 600;
+  background: var(--primary); color: #fff; cursor: pointer; text-align: center;
+}
+button:hover, .btn:hover { background: var(--primary-dark); }
+button:disabled { opacity: .6; cursor: default; }
+button.secondary { background: #fff; color: var(--text); border: 1px solid var(--border); }
+button.link { background: none; color: #d0d5dd; padding: 0; font-weight: 400; }
+button.link:hover { color: #fff; }
+.full { width: 100%; margin-top: 20px; }
+
+.error { color: var(--danger); font-size: 14px; margin-top: 12px; min-height: 18px; }
+.muted { color: var(--muted); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.product { display: flex; flex-direction: column; }
+.product .icon { font-size: 40px; }
+.product h2 { margin: 12px 0 4px; }
+.product .tagline { color: var(--accent); font-weight: 600; font-size: 14px; margin: 0 0 12px; }
+.product p { flex: 1; color: var(--muted); line-height: 1.5; }
+.price { font-size: 26px; font-weight: 700; margin: 12px 0; }
+.price small { font-size: 14px; color: var(--muted); font-weight: 400; }
+.row { display: flex; gap: 10px; align-items: center; }
+.row input { width: 70px; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 12px 8px; border-bottom: 1px solid var(--border); }
+th { color: var(--muted); font-size: 13px; text-transform: uppercase; }
+td input { width: 70px; }
+.total { text-align: right; font-size: 20px; margin-top: 20px; }
+.actions { display: flex; justify-content: space-between; margin-top: 20px; gap: 12px; }
+
+.checkout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.summary-line { display: flex; justify-content: space-between; padding: 6px 0; }
+
+.success { text-align: center; }
+.success .check { font-size: 56px; color: var(--success); }
+
+.order { margin-bottom: 16px; }
+.order-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+
+.toast {
+  position: fixed; top: 70px; right: 20px; background: #101828; color: #fff;
+  padding: 12px 18px; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,.2); z-index: 10;
+}
+
+@media (max-width: 720px) {
+  .checkout, .two { grid-template-columns: 1fr; }
+  .nav { gap: 12px; font-size: 14px; }
+}

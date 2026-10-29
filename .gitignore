@@ -1,0 +1,4 @@
+node_modules/
+.env
+TEST_ACCOUNTS.md
+.DS_Store

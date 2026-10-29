@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BrowserStack Lab Store</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="#/products" class="brand" data-testid="brand">BrowserStack <span>Lab Store</span></a>
+    <nav id="nav" class="nav hidden">
+      <a href="#/products" data-testid="nav-products">Products</a>
+      <a href="#/orders" data-testid="nav-orders">Orders</a>
+      <a href="#/cart" data-testid="nav-cart">Cart <span id="cart-count" class="badge" data-testid="cart-count">0</span></a>
+      <span id="user-name" class="user" data-testid="user-name"></span>
+      <button id="logout" class="link" data-testid="logout-button">Logout</button>
+    </nav>
+  </header>
+
+  <div id="toast" class="toast hidden" role="status" data-testid="toast"></div>
+  <main id="app" class="container"></main>
+
+  <script src="/config.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
