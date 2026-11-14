@@ -5,7 +5,9 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "node --watch src/server.js"
+    "dev": "node --watch src/server.js",
+    "start:mongo": "DB_MODE=mongo node src/server.js",
+    "dev:mongo": "DB_MODE=mongo node --watch src/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -13,6 +15,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
+    "mongodb-memory-server": "^10.4.3",
     "mongoose": "^8.9.5"
   }
 }

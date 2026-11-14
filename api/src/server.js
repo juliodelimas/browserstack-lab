@@ -1,12 +1,11 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
 
 const seedProducts = require('./seed');
+const db = require('./db');
 
 const PORT = process.env.PORT || 3001;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/browserstack-lab';
 
 const app = express();
 app.use(cors({ origin: process.env.WEB_ORIGIN || 'http://localhost:3000' }));
@@ -25,10 +24,15 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong' });
 });
 
-mongoose
-  .connect(MONGO_URI)
-  .then(seedProducts)
-  .then(() => app.listen(PORT, () => console.log(`API running on http://localhost:${PORT}`)))
+db.connect()
+  .then(async (description) => {
+    console.log(`Database: ${description}`);
+    await seedProducts();
+    const server = app.listen(PORT, () => console.log(`API running on http://localhost:${PORT}`));
+    const shutdown = () => server.close(() => db.disconnect().finally(() => process.exit(0)));
+    process.on('SIGINT', shutdown);
+    process.on('SIGTERM', shutdown);
+  })
   .catch((err) => {
     console.error('Failed to start API:', err.message);
     process.exit(1);
